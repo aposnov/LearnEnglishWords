@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E756EA0422AFC9FD005B2940 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756EA0322AFC9FD005B2940 /* AppDelegate.swift */; };
-		E756EA0622AFC9FD005B2940 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756EA0522AFC9FD005B2940 /* ViewController.swift */; };
-		E756EA0922AFC9FD005B2940 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E756EA0722AFC9FD005B2940 /* Main.storyboard */; };
+		E756EA0922AFC9FD005B2940 /* MainViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E756EA0722AFC9FD005B2940 /* MainViewController.storyboard */; };
 		E756EA0C22AFC9FD005B2940 /* LearnEnglishWords.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E756EA0A22AFC9FD005B2940 /* LearnEnglishWords.xcdatamodeld */; };
 		E756EA0E22AFC9FF005B2940 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E756EA0D22AFC9FF005B2940 /* Assets.xcassets */; };
 		E756EA1122AFC9FF005B2940 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E756EA0F22AFC9FF005B2940 /* LaunchScreen.storyboard */; };
@@ -19,7 +18,6 @@
 		E756EA2622AFCB02005B2940 /* MainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756EA1F22AFCB02005B2940 /* MainModels.swift */; };
 		E756EA2722AFCB02005B2940 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756EA2022AFCB02005B2940 /* MainViewController.swift */; };
 		E756EA2822AFCB02005B2940 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756EA2122AFCB02005B2940 /* MainInteractor.swift */; };
-		E756EA2922AFCB02005B2940 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E756EA2222AFCB02005B2940 /* MainViewController.xib */; };
 		E756EA3122AFCB36005B2940 /* HistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756EA2A22AFCB36005B2940 /* HistoryPresenter.swift */; };
 		E756EA3222AFCB36005B2940 /* HistoryWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756EA2B22AFCB36005B2940 /* HistoryWorker.swift */; };
 		E756EA3322AFCB36005B2940 /* HistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756EA2C22AFCB36005B2940 /* HistoryRouter.swift */; };
@@ -39,8 +37,7 @@
 /* Begin PBXFileReference section */
 		E756EA0022AFC9FD005B2940 /* LearnEnglishWords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnEnglishWords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E756EA0322AFC9FD005B2940 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E756EA0522AFC9FD005B2940 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E756EA0822AFC9FD005B2940 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E756EA0822AFC9FD005B2940 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainViewController.storyboard; sourceTree = "<group>"; };
 		E756EA0B22AFC9FD005B2940 /* LearnEnglishWords.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LearnEnglishWords.xcdatamodel; sourceTree = "<group>"; };
 		E756EA0D22AFC9FF005B2940 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E756EA1022AFC9FF005B2940 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,7 +48,6 @@
 		E756EA1F22AFCB02005B2940 /* MainModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModels.swift; sourceTree = "<group>"; };
 		E756EA2022AFCB02005B2940 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E756EA2122AFCB02005B2940 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
-		E756EA2222AFCB02005B2940 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		E756EA2A22AFCB36005B2940 /* HistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryPresenter.swift; sourceTree = "<group>"; };
 		E756EA2B22AFCB36005B2940 /* HistoryWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryWorker.swift; sourceTree = "<group>"; };
 		E756EA2C22AFCB36005B2940 /* HistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRouter.swift; sourceTree = "<group>"; };
@@ -115,7 +111,7 @@
 				E756EA1F22AFCB02005B2940 /* MainModels.swift */,
 				E756EA1D22AFCB02005B2940 /* MainWorker.swift */,
 				E756EA1E22AFCB02005B2940 /* MainRouter.swift */,
-				E756EA2222AFCB02005B2940 /* MainViewController.xib */,
+				E756EA0722AFC9FD005B2940 /* MainViewController.storyboard */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -152,8 +148,6 @@
 			isa = PBXGroup;
 			children = (
 				E756EA0322AFC9FD005B2940 /* AppDelegate.swift */,
-				E756EA0522AFC9FD005B2940 /* ViewController.swift */,
-				E756EA0722AFC9FD005B2940 /* Main.storyboard */,
 				E756EA0D22AFC9FF005B2940 /* Assets.xcassets */,
 				E756EA0F22AFC9FF005B2940 /* LaunchScreen.storyboard */,
 				E756EA1222AFC9FF005B2940 /* Info.plist */,
@@ -223,9 +217,8 @@
 				E756EA1122AFC9FF005B2940 /* LaunchScreen.storyboard in Resources */,
 				E756EA4522AFCB55005B2940 /* SettingsViewController.xib in Resources */,
 				E756EA0E22AFC9FF005B2940 /* Assets.xcassets in Resources */,
-				E756EA0922AFC9FD005B2940 /* Main.storyboard in Resources */,
+				E756EA0922AFC9FD005B2940 /* MainViewController.storyboard in Resources */,
 				E756EA3722AFCB36005B2940 /* HistoryViewController.xib in Resources */,
-				E756EA2922AFCB02005B2940 /* MainViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +230,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E756EA4022AFCB55005B2940 /* SettingsWorker.swift in Sources */,
-				E756EA0622AFC9FD005B2940 /* ViewController.swift in Sources */,
 				E756EA3322AFCB36005B2940 /* HistoryRouter.swift in Sources */,
 				E756EA4322AFCB55005B2940 /* SettingsViewController.swift in Sources */,
 				E756EA4122AFCB55005B2940 /* SettingsRouter.swift in Sources */,
@@ -263,12 +255,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E756EA0722AFC9FD005B2940 /* Main.storyboard */ = {
+		E756EA0722AFC9FD005B2940 /* MainViewController.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E756EA0822AFC9FD005B2940 /* Base */,
 			);
-			name = Main.storyboard;
+			name = MainViewController.storyboard;
 			sourceTree = "<group>";
 		};
 		E756EA0F22AFC9FF005B2940 /* LaunchScreen.storyboard */ = {

@@ -16,18 +16,6 @@ class MainViewController: UIViewController, MainDisplayLogic {
 
   var interactor: MainBusinessLogic?
   var router: (NSObjectProtocol & MainRoutingLogic)?
-
-  // MARK: Object lifecycle
-  
-  override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-    super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    setup()
-  }
-  
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    setup()
-  }
   
   // MARK: Setup
   
@@ -51,6 +39,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setup()
   }
   
   func displayData(viewModel: Main.Model.ViewModel.ViewModelData) {
