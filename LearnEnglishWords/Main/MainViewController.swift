@@ -23,9 +23,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
     @IBOutlet weak var targetLanguage: UIButton!
     @IBOutlet weak var inputTextField: UITextView!
     @IBOutlet weak var resultTextiField: UITextView!
-    private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkService())
-    
-    
+   
       private func setup() {
         let viewController        = self
         let interactor            = MainInteractor()
@@ -47,20 +45,17 @@ class MainViewController: UIViewController, MainDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fetcher.getTranslation(query: "Magazine"){ (TranslationResponse) in
-            guard let TranslationResponse = TranslationResponse else { return }
-            print(TranslationResponse.text)
-        }
-        
         setup()
       }
   
     func displayData(viewModel: Main.Model.ViewModel.ViewModelData) {
         
         switch viewModel {
-        case .displayTranslation:
-            print(".displayTranslation viewModel")
-      }
+          case .displayTranslation(let resultText):
+            
+                resultTextiField.text = resultText
+            
+            }
         
      }
     
@@ -72,10 +67,8 @@ extension MainViewController: UITextViewDelegate {
         if textView == inputTextField {
             
             let inputText = inputTextField.text
-            
-            interactor?.makeRequest(request: .getTranslation)
-            
-            resultTextiField.text = inputText
+            guard let q = inputText else { return }
+            interactor?.makeRequest(request: .getTranslation(query: q))
             inputTextField.resignFirstResponder()
             
         }

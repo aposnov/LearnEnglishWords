@@ -13,17 +13,17 @@ enum Main {
   enum Model {
     struct Request {
       enum RequestType {
-        case getTranslation
+        case getTranslation(query: String)
       }
     }
     struct Response {
       enum ResponseType {
-        case presentTranslation
+        case presentTranslation(resultText: String)
       }
     }
     struct ViewModel {
       enum ViewModelData {
-        case displayTranslation
+        case displayTranslation(resultText: String)
       }
     }
   }

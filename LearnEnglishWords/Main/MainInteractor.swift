@@ -17,15 +17,20 @@ class MainInteractor: MainBusinessLogic {
   var presenter: MainPresentationLogic?
   var service: MainService?
   
+     private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkService())
+    
   func makeRequest(request: Main.Model.Request.RequestType) {
     if service == nil {
       service = MainService()
     }
     
     switch request {
-    case .getTranslation:
-        print(".getTranslation Interactor")
-        presenter?.presentData(response: .presentTranslation)
+      case .getTranslation(let query):
+        fetcher.getTranslation(query: query){[weak self] (TranslationResponse) in
+            guard let TranslationResponse = TranslationResponse else { return }
+            let text = TranslationResponse.text[0]
+            self?.presenter?.presentData(response: .presentTranslation(resultText: text))
+        }
     }
     
   }
