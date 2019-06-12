@@ -60,6 +60,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
         
      }
     
+    //Add actions to buttons
     func initButtons(){
         sourceLanguage.addTarget(self, action: #selector(showSourceLanguage), for: .touchUpInside)
         targetLanguage.addTarget(self, action: #selector(showTargetLanguage), for: .touchUpInside)
@@ -68,6 +69,8 @@ class MainViewController: UIViewController, MainDisplayLogic {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //Show choosen language
         
         let sourceLanguageTitle = UserDefaults.standard.string(forKey: "sourceLanguage")
         let targetLanguageTitle = UserDefaults.standard.string(forKey: "targetLanguage")
@@ -81,6 +84,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
         }
     }
     
+    //Choose source language
     @objc private func showSourceLanguage() {
       
         let storyboard = UIStoryboard(name: "SelectLanguage", bundle: nil)
@@ -90,6 +94,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
 
     }
     
+    //Choose target language
     @objc private func showTargetLanguage() {
         
         let storyboard = UIStoryboard(name: "SelectLanguage", bundle: nil)
@@ -99,6 +104,7 @@ class MainViewController: UIViewController, MainDisplayLogic {
         
     }
     
+    //Change source/target language places
     @objc private func changeLanguagePlaces() {
        
         let source = sourceLanguage.titleLabel
@@ -112,13 +118,19 @@ class MainViewController: UIViewController, MainDisplayLogic {
 }
 
 extension MainViewController: UITextViewDelegate {
+    
+    
     func textViewDidEndEditing(_ textView: UITextView) {
+        
+        //Get choosen languages
         let source = sourceLanguage.titleLabel
         let target = targetLanguage.titleLabel
         
+        //Match choosen languages
         let sourceLanguage = getLangForRequest(lang: source?.text)
         let targetLanguage = getLangForRequest(lang: target?.text)
         
+        //Send request to translate
         if textView == inputTextField {
             let inputText = inputTextField.text
             guard let query = inputText else { return }
@@ -129,8 +141,8 @@ extension MainViewController: UITextViewDelegate {
         }
     }
     
+    //Match function selected language for API request
     func getLangForRequest(lang: String?) -> String {
-        
         switch lang  {
             case "Russian":
             return "ru"
@@ -144,11 +156,12 @@ extension MainViewController: UITextViewDelegate {
         
     }
     
+    //Hide keyboard when touch outside
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
     
-    
+    //Hide keyboard when press Enter
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if text == "\n" {
             textView.resignFirstResponder()

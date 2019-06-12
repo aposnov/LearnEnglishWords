@@ -29,7 +29,10 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
     setup()
   }
   
-  // MARK: Setup
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var cleanButton: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
+    // MARK: Setup
   
   private func setup() {
     let viewController        = self
