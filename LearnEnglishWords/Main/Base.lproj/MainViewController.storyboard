@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,20 +13,11 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="LearnEnglishWords" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Main" id="BYZ-38-t0r" customClass="MainViewController" customModule="LearnEnglishWords" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N86-Gq-G0c">
-                                <rect key="frame" x="0.0" y="813" width="414" height="83"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem title="Перевод" id="ysG-bL-tVY"/>
-                                    <tabBarItem title="История" id="pc7-Tk-92L"/>
-                                    <tabBarItem title="Настройки" id="rgT-qD-QMy"/>
-                                </items>
-                            </tabBar>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JSp-jO-VO3">
                                 <rect key="frame" x="20" y="105" width="374" height="138"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -39,12 +30,10 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="gve-Qf-teu"/>
                                 </connections>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UYF-hT-0AZ">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UYF-hT-0AZ">
                                 <rect key="frame" x="20" y="251" width="374" height="431"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="431" id="y4w-bV-oXV"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <connections>
@@ -56,49 +45,40 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="131" id="wmr-hK-4tp"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Выберите язык"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="05V-yL-ccC">
                                 <rect key="frame" x="263" y="67" width="131" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="131" id="cG7-ax-qM4"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Выберите язык"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="↔" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SME-5Y-8DG">
-                                <rect key="frame" x="159" y="72" width="76" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="76" id="Xuy-ay-Tcu"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lr0-DK-12W">
+                                <rect key="frame" x="175" y="67" width="65" height="30"/>
+                                <state key="normal" title="↔">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.86391395330429077" blue="0.37271904945373535" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="05V-yL-ccC" secondAttribute="trailing" constant="20" id="91w-eF-9Ny"/>
                             <constraint firstItem="sq0-DM-yP2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="23" id="9k3-SE-WO0"/>
-                            <constraint firstItem="SME-5Y-8DG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="28" id="Eqg-5l-2tF"/>
                             <constraint firstItem="05V-yL-ccC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="23" id="F4x-c1-zuJ"/>
-                            <constraint firstItem="UYF-hT-0AZ" firstAttribute="top" secondItem="JSp-jO-VO3" secondAttribute="bottom" constant="8" id="GQi-w9-cHF"/>
                             <constraint firstItem="sq0-DM-yP2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="KxY-oi-bwH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="JSp-jO-VO3" secondAttribute="trailing" constant="20" id="LLN-KI-FpC"/>
-                            <constraint firstItem="05V-yL-ccC" firstAttribute="leading" secondItem="SME-5Y-8DG" secondAttribute="trailing" constant="28" id="LgO-Vq-0gy"/>
-                            <constraint firstItem="SME-5Y-8DG" firstAttribute="leading" secondItem="sq0-DM-yP2" secondAttribute="trailing" constant="8" id="PrW-ev-Ofd"/>
+                            <constraint firstItem="Lr0-DK-12W" firstAttribute="centerX" secondItem="JSp-jO-VO3" secondAttribute="centerX" id="Vvq-dX-tyf"/>
                             <constraint firstItem="JSp-jO-VO3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="eAz-Im-VHG"/>
-                            <constraint firstItem="UYF-hT-0AZ" firstAttribute="centerX" secondItem="N86-Gq-G0c" secondAttribute="centerX" id="g22-15-fnM"/>
-                            <constraint firstItem="N86-Gq-G0c" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="i7s-GO-eGk"/>
                             <constraint firstItem="JSp-jO-VO3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jHc-af-QYX"/>
-                            <constraint firstItem="UYF-hT-0AZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qdB-74-r3w"/>
-                            <constraint firstItem="UYF-hT-0AZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="rfv-7x-c10"/>
-                            <constraint firstAttribute="bottom" secondItem="N86-Gq-G0c" secondAttribute="bottom" id="wAt-iX-8eQ"/>
+                            <constraint firstItem="Lr0-DK-12W" firstAttribute="baseline" secondItem="05V-yL-ccC" secondAttribute="baseline" id="o1S-Wd-g6G"/>
                             <constraint firstItem="JSp-jO-VO3" firstAttribute="top" secondItem="sq0-DM-yP2" secondAttribute="bottom" constant="8" symbolic="YES" id="xng-dK-Tv8"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UYF-hT-0AZ" secondAttribute="trailing" constant="20" id="zno-rL-H3L"/>
+                            <constraint firstItem="05V-yL-ccC" firstAttribute="leading" secondItem="Lr0-DK-12W" secondAttribute="trailing" constant="23" id="y9n-jM-z6n"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="changeLanguage" destination="Lr0-DK-12W" id="YrJ-Y2-Guo"/>
                         <outlet property="inputTextField" destination="JSp-jO-VO3" id="qEr-hO-Pxk"/>
                         <outlet property="resultTextiField" destination="UYF-hT-0AZ" id="gW7-c4-Ejt"/>
                         <outlet property="sourceLanguage" destination="sq0-DM-yP2" id="SAT-cq-KSG"/>

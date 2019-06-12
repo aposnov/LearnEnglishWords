@@ -17,8 +17,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+     
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let nav1 = UINavigationController()
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "MainViewController", bundle: nil)
+        let first = mainStoryboard.instantiateViewController(withIdentifier: "Main") as! MainViewController
+        nav1.viewControllers = [first]
+        nav1.setNavigationBarHidden(true, animated: true)
+        nav1.title = "Translation"
+        
+        let nav2 = UINavigationController()
+        let historyStoryboard: UIStoryboard = UIStoryboard(name: "HistoryViewController", bundle: nil)
+        let second: HistoryViewController = historyStoryboard.instantiateViewController(withIdentifier: "History") as! HistoryViewController
+        nav2.viewControllers = [second]
+        nav2.setNavigationBarHidden(true, animated: true)
+        nav2.title = "History"
+     
+        let tabController = UITabBarController()
+        tabController.viewControllers = [nav1,nav2]
+        tabController.selectedIndex = 0
+        
+        self.window!.rootViewController = tabController
+        self.window?.makeKeyAndVisible()
+        
         return true
     }
+    
+ 
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

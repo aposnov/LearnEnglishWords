@@ -23,7 +23,8 @@ class MainViewController: UIViewController, MainDisplayLogic {
     @IBOutlet weak var targetLanguage: UIButton!
     @IBOutlet weak var inputTextField: UITextView!
     @IBOutlet weak var resultTextiField: UITextView!
-   
+    @IBOutlet weak var changeLanguage: UIButton!
+  
       private func setup() {
         let viewController        = self
         let interactor            = MainInteractor()
@@ -45,36 +46,114 @@ class MainViewController: UIViewController, MainDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+  
         setup()
+        initButtons()
       }
   
     func displayData(viewModel: Main.Model.ViewModel.ViewModelData) {
         
         switch viewModel {
           case .displayTranslation(let resultText):
-            
                 resultTextiField.text = resultText
-            
             }
         
      }
     
+    func initButtons(){
+        sourceLanguage.addTarget(self, action: #selector(showSourceLanguage), for: .touchUpInside)
+        targetLanguage.addTarget(self, action: #selector(showTargetLanguage), for: .touchUpInside)
+        changeLanguage.addTarget(self, action: #selector(changeLanguagePlaces), for: .touchUpInside)
+     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let sourceLanguageTitle = UserDefaults.standard.string(forKey: "sourceLanguage")
+        let targetLanguageTitle = UserDefaults.standard.string(forKey: "targetLanguage")
+        
+        if let sourceLangTitle = sourceLanguageTitle {
+            sourceLanguage.setTitle(sourceLangTitle, for:.normal)
+        }
+        
+        if let targetLangTitle = targetLanguageTitle {
+            targetLanguage.setTitle(targetLangTitle, for:.normal)
+        }
+    }
+    
+    @objc private func showSourceLanguage() {
+      
+        let storyboard = UIStoryboard(name: "SelectLanguage", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "SelectLanguageViewController") as! SelectLanguageViewController
+        controller.typeLanguage = "Source Language"
+        self.present(controller, animated: true, completion: nil)
+
+    }
+    
+    @objc private func showTargetLanguage() {
+        
+        let storyboard = UIStoryboard(name: "SelectLanguage", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "SelectLanguageViewController") as! SelectLanguageViewController
+        controller.typeLanguage = "Target Language"
+        self.present(controller, animated: true, completion: nil)
+        
+    }
+    
+    @objc private func changeLanguagePlaces() {
+       
+        let source = sourceLanguage.titleLabel
+        let target = targetLanguage.titleLabel
+        
+        targetLanguage.setTitle(source?.text, for:.normal)
+        sourceLanguage.setTitle(target?.text, for:.normal)
+        
+    }
     
 }
 
 extension MainViewController: UITextViewDelegate {
     func textViewDidEndEditing(_ textView: UITextView) {
+        let source = sourceLanguage.titleLabel
+        let target = targetLanguage.titleLabel
+        
+        let sourceLanguage = getLangForRequest(lang: source?.text)
+        let targetLanguage = getLangForRequest(lang: target?.text)
+        
         if textView == inputTextField {
-            
             let inputText = inputTextField.text
-            guard let q = inputText else { return }
-            interactor?.makeRequest(request: .getTranslation(query: q))
+            guard let query = inputText else { return }
+         
+            let language = "\(sourceLanguage)-\(targetLanguage)"
+            interactor?.makeRequest(request: .getTranslation(query: query, language: language))
             inputTextField.resignFirstResponder()
-            
         }
+    }
+    
+    func getLangForRequest(lang: String?) -> String {
+        
+        switch lang  {
+            case "Russian":
+            return "ru"
+            case "English":
+            return "en"
+            case "Spanish":
+            return "es"
+            default:
+            return ""
+        }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n" {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
     }
 }

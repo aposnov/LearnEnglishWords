@@ -13,7 +13,7 @@ enum Main {
   enum Model {
     struct Request {
       enum RequestType {
-        case getTranslation(query: String)
+        case getTranslation(query: String, language: String)
       }
     }
     struct Response {

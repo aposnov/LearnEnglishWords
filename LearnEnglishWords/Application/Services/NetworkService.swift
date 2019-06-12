@@ -10,14 +10,14 @@ import Foundation
 
 final class NetworkService {
     
-    func getTranslation(q: String, completion: @escaping (Data?, Error?) -> Void) {
+    func getTranslation(q: String, language: String, completion: @escaping (Data?, Error?) -> Void) {
             var components = URLComponents()
             let query = q
         
             let params = ["key":"trnsl.1.1.20190611T154159Z.9fa98935b45dd63e.d2ae642540c98ba064bf2f29b45b32f8417e15b4"]
             var allParams = params
             allParams["text"] = query
-            allParams["lang"] = "en-ru"
+            allParams["lang"] = language
             allParams["format"] = "plain"
             allParams["options"] = "0"
         

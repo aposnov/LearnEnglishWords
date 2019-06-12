@@ -51,6 +51,9 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+
+    
   }
   
   func displayData(viewModel: History.Model.ViewModel.ViewModelData) {

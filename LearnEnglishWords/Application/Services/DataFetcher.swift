@@ -9,7 +9,7 @@
 import Foundation
 
 protocol DataFetcher {
-    func getTranslation(query: String, response: @escaping (TranslationResponse?) -> Void)
+    func getTranslation(query: String, language: String, response: @escaping (TranslationResponse?) -> Void)
 }
 
 struct NetworkDataFetcher: DataFetcher {
@@ -20,8 +20,8 @@ struct NetworkDataFetcher: DataFetcher {
         self.networking = networking
     }
     
-    func getTranslation(query: String, response: @escaping (TranslationResponse?) -> Void) {
-        networking.getTranslation(q: query) { (data, error) in
+    func getTranslation(query: String,  language: String, response: @escaping (TranslationResponse?) -> Void) {
+        networking.getTranslation(q: query, language: language) { (data, error) in
             
             if let error = error {
                 print("Error received data: \(error.localizedDescription)")

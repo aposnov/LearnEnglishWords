@@ -25,12 +25,13 @@ class MainInteractor: MainBusinessLogic {
     }
     
     switch request {
-      case .getTranslation(let query):
-        fetcher.getTranslation(query: query){[weak self] (TranslationResponse) in
+      case .getTranslation(let query, let language):
+        fetcher.getTranslation(query: query, language: language){[weak self] (TranslationResponse) in
             guard let TranslationResponse = TranslationResponse else { return }
             let text = TranslationResponse.text[0]
             self?.presenter?.presentData(response: .presentTranslation(resultText: text))
         }
+   
     }
     
   }
