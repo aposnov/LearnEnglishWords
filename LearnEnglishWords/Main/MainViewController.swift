@@ -16,34 +16,72 @@ class MainViewController: UIViewController, MainDisplayLogic {
 
   var interactor: MainBusinessLogic?
   var router: (NSObjectProtocol & MainRoutingLogic)?
+    
   
   // MARK: Setup
+    @IBOutlet weak var sourceLanguage: UIButton!
+    @IBOutlet weak var targetLanguage: UIButton!
+    @IBOutlet weak var inputTextField: UITextView!
+    @IBOutlet weak var resultTextiField: UITextView!
+    private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkService())
+    
+    
+      private func setup() {
+        let viewController        = self
+        let interactor            = MainInteractor()
+        let presenter             = MainPresenter()
+        let router                = MainRouter()
+        viewController.interactor = interactor
+        viewController.router     = router
+        interactor.presenter      = presenter
+        presenter.viewController  = viewController
+        router.viewController     = viewController
+      }
   
-  private func setup() {
-    let viewController        = self
-    let interactor            = MainInteractor()
-    let presenter             = MainPresenter()
-    let router                = MainRouter()
-    viewController.interactor = interactor
-    viewController.router     = router
-    interactor.presenter      = presenter
-    presenter.viewController  = viewController
-    router.viewController     = viewController
-  }
-  
-  // MARK: Routing
+    // MARK: Routing
   
 
   
-  // MARK: View lifecycle
+    // MARK: View lifecycle
   
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    setup()
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        fetcher.getTranslation(query: "Magazine"){ (TranslationResponse) in
+            guard let TranslationResponse = TranslationResponse else { return }
+            print(TranslationResponse.text)
+        }
+        
+        setup()
+      }
   
-  func displayData(viewModel: Main.Model.ViewModel.ViewModelData) {
+    func displayData(viewModel: Main.Model.ViewModel.ViewModelData) {
+        
+        switch viewModel {
+        case .displayTranslation:
+            print(".displayTranslation viewModel")
+      }
+        
+     }
+    
+    
+}
 
-  }
-  
+extension MainViewController: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView == inputTextField {
+            
+            let inputText = inputTextField.text
+            
+            interactor?.makeRequest(request: .getTranslation)
+            
+            resultTextiField.text = inputText
+            inputTextField.resignFirstResponder()
+            
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }

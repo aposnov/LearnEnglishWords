@@ -32,6 +32,10 @@
 		E756EA4322AFCB55005B2940 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756EA3C22AFCB55005B2940 /* SettingsViewController.swift */; };
 		E756EA4422AFCB55005B2940 /* SettingsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756EA3D22AFCB55005B2940 /* SettingsInteractor.swift */; };
 		E756EA4522AFCB55005B2940 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E756EA3E22AFCB55005B2940 /* SettingsViewController.xib */; };
+		E756EA4822B002B2005B2940 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756EA4722B002B2005B2940 /* NetworkService.swift */; };
+		E756EA4A22B004E3005B2940 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756EA4922B004E3005B2940 /* API.swift */; };
+		E756EA4D22B02468005B2940 /* TranslationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756EA4C22B02468005B2940 /* TranslationResponse.swift */; };
+		E756EA4F22B073CD005B2940 /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E756EA4E22B073CD005B2940 /* DataFetcher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +66,10 @@
 		E756EA3C22AFCB55005B2940 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E756EA3D22AFCB55005B2940 /* SettingsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsInteractor.swift; sourceTree = "<group>"; };
 		E756EA3E22AFCB55005B2940 /* SettingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		E756EA4722B002B2005B2940 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		E756EA4922B004E3005B2940 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		E756EA4C22B02468005B2940 /* TranslationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranslationResponse.swift; sourceTree = "<group>"; };
+		E756EA4E22B073CD005B2940 /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +155,7 @@
 		E756EA1B22AFCA8E005B2940 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				E756EA4622B0028D005B2940 /* Services */,
 				E756EA0322AFC9FD005B2940 /* AppDelegate.swift */,
 				E756EA0D22AFC9FF005B2940 /* Assets.xcassets */,
 				E756EA0F22AFC9FF005B2940 /* LaunchScreen.storyboard */,
@@ -154,6 +163,25 @@
 				E756EA0A22AFC9FD005B2940 /* LearnEnglishWords.xcdatamodeld */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		E756EA4622B0028D005B2940 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E756EA4B22B0245C005B2940 /* Models */,
+				E756EA4722B002B2005B2940 /* NetworkService.swift */,
+				E756EA4922B004E3005B2940 /* API.swift */,
+				E756EA4E22B073CD005B2940 /* DataFetcher.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E756EA4B22B0245C005B2940 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E756EA4C22B02468005B2940 /* TranslationResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +257,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E756EA4A22B004E3005B2940 /* API.swift in Sources */,
 				E756EA4022AFCB55005B2940 /* SettingsWorker.swift in Sources */,
 				E756EA3322AFCB36005B2940 /* HistoryRouter.swift in Sources */,
 				E756EA4322AFCB55005B2940 /* SettingsViewController.swift in Sources */,
+				E756EA4D22B02468005B2940 /* TranslationResponse.swift in Sources */,
 				E756EA4122AFCB55005B2940 /* SettingsRouter.swift in Sources */,
 				E756EA0422AFC9FD005B2940 /* AppDelegate.swift in Sources */,
 				E756EA0C22AFC9FD005B2940 /* LearnEnglishWords.xcdatamodeld in Sources */,
@@ -242,6 +272,8 @@
 				E756EA3122AFCB36005B2940 /* HistoryPresenter.swift in Sources */,
 				E756EA4222AFCB55005B2940 /* SettingsModels.swift in Sources */,
 				E756EA2822AFCB02005B2940 /* MainInteractor.swift in Sources */,
+				E756EA4F22B073CD005B2940 /* DataFetcher.swift in Sources */,
+				E756EA4822B002B2005B2940 /* NetworkService.swift in Sources */,
 				E756EA2622AFCB02005B2940 /* MainModels.swift in Sources */,
 				E756EA3F22AFCB55005B2940 /* SettingsPresenter.swift in Sources */,
 				E756EA3422AFCB36005B2940 /* HistoryModels.swift in Sources */,

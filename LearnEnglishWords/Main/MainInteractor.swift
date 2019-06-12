@@ -21,6 +21,15 @@ class MainInteractor: MainBusinessLogic {
     if service == nil {
       service = MainService()
     }
+    
+    switch request {
+    case .getTranslation:
+        print(".getTranslation Interactor")
+        presenter?.presentData(response: .presentTranslation)
+    }
+    
   }
+    
+   
   
 }

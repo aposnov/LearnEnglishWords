@@ -13,19 +13,21 @@ enum Main {
   enum Model {
     struct Request {
       enum RequestType {
-        case some
+        case getTranslation
       }
     }
     struct Response {
       enum ResponseType {
-        case some
+        case presentTranslation
       }
     }
     struct ViewModel {
       enum ViewModelData {
-        case some
+        case displayTranslation
       }
     }
   }
   
 }
+
+

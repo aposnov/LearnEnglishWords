@@ -17,6 +17,11 @@ class MainPresenter: MainPresentationLogic {
   
   func presentData(response: Main.Model.Response.ResponseType) {
   
-  }
+    switch response {
+            case .presentTranslation:
+                print(".presentTranslation Presenter")
+                viewController?.displayData(viewModel: .displayTranslation)
+          }
+    }
   
 }
