@@ -33,6 +33,7 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
     @IBOutlet weak var cleanButton: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
     // MARK: Setup
+    private var historyViewModel = HistoryViewModel.init(cells: [])
   
   private func setup() {
     let viewController        = self
@@ -55,12 +56,59 @@ class HistoryViewController: UIViewController, HistoryDisplayLogic {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-
+    initUI()
+  
+   }
     
-  }
-  
-  func displayData(viewModel: History.Model.ViewModel.ViewModelData) {
+   func displayData(viewModel: History.Model.ViewModel.ViewModelData) {
+    switch  viewModel {
+        case .displayVocabulary(let historyViewModel):
+            self.historyViewModel = historyViewModel
+            self.tableView.reloadData()
+       }
+   }
+    
+    func initUI(){
+        let nib = UINib(nibName: "HistoryCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "HistoryCell")
+        
+        cleanButton.addTarget(self, action: #selector(clean), for: .touchUpInside)
+    }
+    
+ }
 
-  }
-  
+extension HistoryViewController: UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        refresh()
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return historyViewModel.cells.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath) as! HistoryCell
+        let cellViewModel = historyViewModel.cells[indexPath.row]
+        cell.set(viewModel: cellViewModel)
+        return cell
+    }
+    
+    @objc private func clean() {
+        interactor?.makeRequest(request: .cleanVocabulary)
+    }
+    
+    @objc private func refresh() {
+        interactor?.makeRequest(request: .getVocabulary)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+      print(searchText)
+        
+    }
+    
+    
 }

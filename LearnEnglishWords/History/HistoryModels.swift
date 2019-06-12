@@ -13,19 +13,28 @@ enum History {
   enum Model {
     struct Request {
       enum RequestType {
-        case some
+        case getVocabulary
+        case cleanVocabulary
       }
     }
     struct Response {
       enum ResponseType {
-        case some
+        case sendVocabulary(vocabulary: [Words])
       }
     }
     struct ViewModel {
       enum ViewModelData {
-        case some
+        case displayVocabulary(historyViewModel: HistoryViewModel)
       }
     }
   }
   
+}
+
+struct HistoryViewModel {
+    struct Cell: HistoryCellViewModel {
+        var sourceLanguageTranslationWord: String
+        var targetLanguageTranslationWord: String
+     }
+    let cells: [Cell]
 }

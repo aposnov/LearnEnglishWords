@@ -21,6 +21,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fuz-tw-fxj">
                                 <rect key="frame" x="0.0" y="135" width="414" height="727"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="3Sw-P8-I5a" id="ueg-P2-ic7"/>
+                                    <outlet property="delegate" destination="3Sw-P8-I5a" id="u8I-Wn-jMk"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axr-1l-uCw">
                                 <rect key="frame" x="161" y="59" width="92" height="30"/>
@@ -34,9 +38,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XrG-xS-3Qn">
                                 <rect key="frame" x="352" y="59" width="39" height="30"/>
                                 <state key="normal" title="Clean"/>
-                                <connections>
-                                    <action selector="cleanButton:" destination="3Sw-P8-I5a" eventType="touchUpInside" id="2oC-qC-yAG"/>
-                                </connections>
                             </button>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="jWM-wK-SMx">
                                 <rect key="frame" x="0.0" y="91" width="414" height="44"/>
@@ -44,9 +45,12 @@
                                     <constraint firstAttribute="height" constant="44" id="p7g-x1-u08"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="3Sw-P8-I5a" id="JE3-m5-oLx"/>
+                                </connections>
                             </searchBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="0.86391395329999998" blue="0.37271904950000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jWM-wK-SMx" firstAttribute="trailing" secondItem="fuz-tw-fxj" secondAttribute="trailing" id="M4L-65-q2B"/>
                             <constraint firstAttribute="trailing" secondItem="jWM-wK-SMx" secondAttribute="trailing" id="M5s-8W-Aeg"/>

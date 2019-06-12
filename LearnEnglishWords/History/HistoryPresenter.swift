@@ -17,6 +17,24 @@ class HistoryPresenter: HistoryPresentationLogic {
   
   func presentData(response: History.Model.Response.ResponseType) {
   
+    switch response {
+      case .sendVocabulary(let vocabulary):
+        
+        let cells = vocabulary.map { (vocabulary) in
+            cellViewModel(from: vocabulary)
+        }
+         
+        let historyViewModel = HistoryViewModel.init(cells: cells)
+        
+        viewController?.displayData(viewModel: .displayVocabulary(historyViewModel: historyViewModel))
+   
+    }
   }
+    
+    private func cellViewModel(from Words: Words) -> HistoryViewModel.Cell {
+        return HistoryViewModel.Cell.init(sourceLanguageTranslationWord: Words.sourceWord ?? "", targetLanguageTranslationWord: Words.targetWord ?? "")
+    }
+    
+ 
   
 }
