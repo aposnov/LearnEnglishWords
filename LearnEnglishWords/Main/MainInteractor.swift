@@ -16,8 +16,9 @@ class MainInteractor: MainBusinessLogic {
 
   var presenter: MainPresentationLogic?
   var service: MainServiceCoreData?
+  var networkService: NetworkService?
   
-     private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkService())
+  private var fetcher: DataFetcher = NetworkDataFetcher(networking: NetworkService())
     
   func makeRequest(request: Main.Model.Request.RequestType) {
     if service == nil {

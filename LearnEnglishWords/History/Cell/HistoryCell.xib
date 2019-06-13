@@ -19,33 +19,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBL-AI-pr6">
-                        <rect key="frame" x="16" y="11.5" width="140" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="140" id="5WN-zf-o0o"/>
-                            <constraint firstAttribute="height" constant="21" id="CYa-Lh-dE1"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBL-AI-pr6">
+                        <rect key="frame" x="16" y="12" width="134" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOo-bx-1Fm">
-                        <rect key="frame" x="164" y="11.5" width="140" height="21"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="140" id="E5k-on-VYu"/>
-                            <constraint firstAttribute="height" constant="21" id="px5-rq-8tN"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOo-bx-1Fm">
+                        <rect key="frame" x="165" y="12" width="139" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="BBL-AI-pr6" firstAttribute="baseline" secondItem="fOo-bx-1Fm" secondAttribute="baseline" id="0Gr-FD-eCx"/>
-                    <constraint firstItem="BBL-AI-pr6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="IMb-hJ-QSc"/>
-                    <constraint firstItem="fOo-bx-1Fm" firstAttribute="leading" secondItem="BBL-AI-pr6" secondAttribute="trailing" constant="8" symbolic="YES" id="hVT-VL-UQI"/>
-                    <constraint firstItem="BBL-AI-pr6" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uWj-Pn-3YZ"/>
-                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>

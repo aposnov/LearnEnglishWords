@@ -30,4 +30,16 @@ enum Main {
   
 }
 
+struct TranslationResponse: Decodable {
+    let text: [String]
+}
+
+struct API {
+    static let scheme = "https"
+    static let host = "translate.yandex.net"
+    static let version = "/api/v1.5/"
+    static let type = "tr.json/"
+    static let translate = "translate"
+}
+
 
