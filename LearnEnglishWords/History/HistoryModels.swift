@@ -15,6 +15,7 @@ enum History {
       enum RequestType {
         case getVocabulary
         case cleanVocabulary
+        case getVocabularyFiltered(search: String)
       }
     }
     struct Response {

@@ -19,11 +19,7 @@ class HistoryInteractor: HistoryBusinessLogic {
   var service: HistoryService?
   
   func makeRequest(request: History.Model.Request.RequestType) {
-     print("imwork")
-//    if service == nil {
-//      service = HistoryService()
-    
-        
+  
         switch request {
           case .getVocabulary:
             var vocabulary = [Words]()
@@ -33,10 +29,20 @@ class HistoryInteractor: HistoryBusinessLogic {
             var vocabulary = [Words]()
             vocabulary = cleanVocabulary()
             self.presenter?.presentData(response: .sendVocabulary(vocabulary: vocabulary))
+          case .getVocabularyFiltered(let search):
+            var vocabulary = [Words]()
+            vocabulary = myFetchRequest(search: search)
+            self.presenter?.presentData(response: .sendVocabulary(vocabulary: vocabulary))
         }
-        
-    //}
+ 
   }
+    func myFetchRequest(search: String) -> [Words] {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetchRequest: NSFetchRequest<Words> = Words.fetchRequest()
+        fetchRequest.predicate = NSPredicate (format: "sourceWord CONTAINS[cd] %@ OR targetWord CONTAINS[cd] %@", search, search)
+        return try! context.fetch(fetchRequest)
+    }
     
     func getVocabulary() -> [Words] {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

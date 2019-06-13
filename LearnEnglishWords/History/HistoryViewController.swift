@@ -86,6 +86,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource, UIS
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      
         return historyViewModel.cells.count
     }
     
@@ -105,10 +106,14 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource, UIS
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-      print(searchText)
-        
+        if searchText != "" {
+        interactor?.makeRequest(request: .getVocabularyFiltered(search: searchText))
+        } else {
+        interactor?.makeRequest(request: .getVocabulary)
+        }
     }
+    
+    
     
     
 }
