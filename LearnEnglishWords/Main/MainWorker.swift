@@ -7,7 +7,21 @@
 //
 
 import UIKit
+import CoreData
 
-class MainService {
+class MainServiceCoreData {
 
+    func saveTranslationToCd(sourceWord: String, targetWord: String, language: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        
+        let entity = NSEntityDescription.entity(forEntityName: "Words", in: context)
+        let wordObject = NSManagedObject(entity: entity!, insertInto: context) as! Words
+        wordObject.sourceWord = sourceWord
+        wordObject.targetWord = targetWord
+        wordObject.language = language
+        
+        try? context.save()
+    }
+    
 }

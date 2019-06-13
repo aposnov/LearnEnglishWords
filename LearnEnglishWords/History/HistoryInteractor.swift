@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CoreData
 
 protocol HistoryBusinessLogic {
   func makeRequest(request: History.Model.Request.RequestType)
