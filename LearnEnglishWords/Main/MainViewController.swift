@@ -71,7 +71,6 @@ class MainViewController: UIViewController, MainDisplayLogic {
         super.viewWillAppear(animated)
         
         //Show choosen language
-        
         let sourceLanguageTitle = UserDefaults.standard.string(forKey: "sourceLanguage")
         let targetLanguageTitle = UserDefaults.standard.string(forKey: "targetLanguage")
         
@@ -86,22 +85,12 @@ class MainViewController: UIViewController, MainDisplayLogic {
     
     //Choose source language
     @objc private func showSourceLanguage() {
-      
-        let storyboard = UIStoryboard(name: "SelectLanguage", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "SelectLanguageViewController") as! SelectLanguageViewController
-        controller.typeLanguage = "Source Language"
-        self.present(controller, animated: true, completion: nil)
-
+         router?.presentController(typeLanguage: "Source Language")
     }
     
     //Choose target language
     @objc private func showTargetLanguage() {
-        
-        let storyboard = UIStoryboard(name: "SelectLanguage", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "SelectLanguageViewController") as! SelectLanguageViewController
-        controller.typeLanguage = "Target Language"
-        self.present(controller, animated: true, completion: nil)
-        
+         router?.presentController(typeLanguage: "Target Language")
     }
     
     //Change source/target language places
