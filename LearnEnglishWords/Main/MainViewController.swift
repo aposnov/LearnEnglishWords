@@ -17,7 +17,6 @@ class MainViewController: UIViewController, MainDisplayLogic {
   var interactor: MainBusinessLogic?
   var router: (NSObjectProtocol & MainRoutingLogic)?
     
-  
   // MARK: Setup
     @IBOutlet weak var sourceLanguage: UIButton!
     @IBOutlet weak var targetLanguage: UIButton!
