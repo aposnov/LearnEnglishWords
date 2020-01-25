@@ -13,7 +13,7 @@
 
 
 ДЕМО<br/>
-<img src="http://www.giphy.com/gifs/XB8daTu52B7SEhmqOR" />
+<img src="https://github.com/aposnov/LearnEnglishWords/blob/master/demo.gif" />
 
 Задание выполнил: <br/>
 Поснов Андрей <br/>
