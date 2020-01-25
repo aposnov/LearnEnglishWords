@@ -22,7 +22,6 @@ class HistoryInteractor: HistoryBusinessLogic {
     if service == nil {
         service = HistoryServiceCoreData()
     }
-    
         switch request {
           case .getVocabulary:
             if let vocabulary = service?.getVocabulary() {
