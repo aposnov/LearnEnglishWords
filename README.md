@@ -1,20 +1,17 @@
 # LearnEnglishWords
-Тест задание, cловарь незнакомых иностранных слов с переводом. Архитектура VIPER/Clean Swift. Без сторонних библиотек. Для хранения слов используется Core Data.
+Test task, dictionary of unfamiliar foreign words with translation. Viper/Clean Swift architecture. Without third-party libraries. Core Data is used for storing words.
 
-Задание: 
-Необходимо разработать приложение, в котором пользователь может составить свой личный словарь незнакомых иностранных слов. Пользователь вводит слово, слово добавляется в его персональный словарь и к слову подгружается перевод (например с http:// api.yandex.ru/translate/). 
-Пользователю выводятся все добавленные слова с переводами в виде списка. 
-Также пользователь может найти ранее добавленное слово в своем словаре используя функцию поиска по слову или по его переводу. Необходимо реализовать минимум 3 языка с возможностью менять направления перевода.
+Task:
+you need to develop an application in which the user can create their own personal dictionary of unfamiliar foreign words. The user enters a word, the word is added to their personal dictionary, and the translation is loaded to the word (for example, from http:// api.yandex.ru/translate/).
+all added words with translations are displayed to the User as a list.
+The user can also find a previously added word in their dictionary using the search function by word or by its translation. You must implement at least 3 languages with the ability to change translation directions.
 
-Требования: 
-Написать приложение на Swift и архитектуре VIPER. Для хранения слов и их переводов использовать Core Data. Запрещается использовать сторонние библиотеки.
-Пользователь может поменять направление перевода или выбрать другой язык. При вводе слова отправляется запрос на перевод и результат сохраняется в базу данных.
-На второй закладке можно посмотреть список переведенных слов и найти нужное слово, при выборе из этого списка открывается первая закладка с переводом даже если пользователь не подключен к интернету. Также здесь можно удалить весь список слов.
+Requirements:
+Write an application in Swift and VIPER architecture. Use Core Data to store words and their translations. You may not use third-party libraries.
+The user can change the translation direction or choose a different language. When you enter a word, a translation request is sent and the result is saved to the database.
+On the second tab, you can view the list of translated words and find the desired word. selecting from this list opens the first tab with the translation, even if the user is not connected to the Internet. You can also delete the entire list of words here.
 
 
-ДЕМО<br/>
+DEMO<br/>
 <img src="https://github.com/aposnov/LearnEnglishWords/blob/master/demo.gif" />
 
-Задание выполнил: <br/>
-Поснов Андрей <br/>
-aposnov.ru
